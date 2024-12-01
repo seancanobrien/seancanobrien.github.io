@@ -12,15 +12,15 @@ layout: null
 <head>
   {% include header.html %}
 </head>
-<body>
 
+<nav>
   {% include nav.html %}
+</nav>
 
+<body>
   <!-- Page Content -->
-    <div class="container">
-
+    <div class="container" style="min-height: 95%;">
       <div class="row">
-
         <div class="col-md-8" >
 
           <!-- Main Image -->
@@ -30,25 +30,28 @@ layout: null
 
           <!-- Contact Info on the Sidebar -->
           <div class="col-md-4">
+
+            <div>
               <div style="font-family: 'Noto Sans', sans-serif; font-size: 32px;"><b>Sean O'Brien</b></div><br>
-              <p><b>2812920O@student.gla.ac.uk</b><br>
-              <p>PhD student in the Department of Mathematics and Statistics<br>
-              University of Glasgow<br>
-              </p>
+                <p><b>2812920O@student.gla.ac.uk</b><br>
+                <p>PhD student at the Department of Mathematics and Statistics,<br>
+                University of Glasgow<br>
+                </p>
+            </div>
+
+            <div>
+              <b>Links:</b>
+              <dd><a href="https://github.com/seancanobrien">GitHub</a></dd> 
+            </div>
           </div>
 
-          <!-- Links on the Sidebar -->
-          <div class="col-md-4" style="margin-top:2%">
-            <dd><a href="#">Google Scholar</a></dd> 
-            <dd><a href="#">Twitter</a></dd>
-            <dd><a href="#">LinkedIn</a></dd>
-          </div>
         </div> 
 
         <div class="col-md-8" style="margin-top:3%; text-align:justify;">                
-          <p>I am a first year mathematics PhD studying under <a href="https://www.maths.gla.ac.uk/~rboyd/">Rachael Boyd</a> and <a href="https://jimbelk.github.io/web/">Jim Belk</a> at the University of Glasgow.</p>
+          <p>I am a first year mathematics PhD studying under <a href="https://www.maths.gla.ac.uk/~rboyd/">Rachael Boyd</a> and <a href="https://jimbelk.github.io/web/">Jim Belk</a>.</p>
           <p>My research interests include group theory, geometric group theory and algebraic topology, with focus on Artin and Coxeter groups.</p>
           <p>I am currently working on the isomorphism problem between Artin and Dual Artin Groups</p>
+
         </div>
 
         <!-- <div class="col-md-8" style="height: 100vh;">     -->
@@ -66,12 +69,12 @@ layout: null
         <!-- </div> -->
 
       </div>
-
     </div>
-
+<footer class="footer">
     <!-- Other people may like it too! -->
-    <a style="color:#b5bec9;font-size:0.8em; float:right;" href="https://github.com/mavroudisv/plain-academic">Plain Academic</a> 
-    
+    <a style="color:#b5bec9;font-size:0.8em; float:right;" href="https://github.com/mavroudisv/plain-academic">Plain Academic template</a> 
+</footer>
 </body>
+
 
 </html>

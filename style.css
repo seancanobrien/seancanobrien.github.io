@@ -1,3 +1,23 @@
-/* .img-responsive { */
-/*     	/* max-width: 220px; /* Set the desired width */ */ */
+/* footer { */
+/*    position: fixed; */
+/*    float: right; */
 /* } */
+
+html, body {
+    height: 100%; /* Ensure the body takes up the full height of the viewport */
+    margin: 0; /* Remove default margin */
+}
+
+.container {
+    min-height: 100%; /* Allow content to expand, but not to push footer down */
+}
+
+.footer {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    height: 30px; /* Adjust the height to match the footer's height */
+    text-align: center;
+    line-height: 50px; /* Vertically center the text */
+}
+
