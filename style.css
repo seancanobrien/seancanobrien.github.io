@@ -1,15 +1,7 @@
-/* footer { */
-/*    position: fixed; */
-/*    float: right; */
-/* } */
 
 html, body {
-    height: 100%; /* Ensure the body takes up the full height of the viewport */
+    height: calc(100%  - 30px); /* Ensure the body takes up the full height of the viewport */
     margin: 0; /* Remove default margin */
-}
-
-.container {
-    min-height: 100%; /* Allow content to expand, but not to push footer down */
 }
 
 .footer {
