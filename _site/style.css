@@ -4,6 +4,11 @@ html, body {
     margin: 0; /* Remove default margin */
 }
 
+/* I dont know why this 65px business works, this seems to keep the footer at the bottom.*/
+.container {
+    min-height: calc(100% - 65px);
+}
+
 .footer {
     position: relative;
     bottom: 0;
