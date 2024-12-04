@@ -16,5 +16,6 @@ html, body {
     height: 30px; /* Adjust the height to match the footer's height */
     text-align: center;
     line-height: 50px; /* Vertically center the text */
+    padding-right: 20px;
 }
 
