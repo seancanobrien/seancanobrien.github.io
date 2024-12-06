@@ -19,3 +19,7 @@ html, body {
     padding-right: 20px;
 }
 
+.profile_pic_container {
+    display: inline-block;
+    max-width: 300px;
+}
