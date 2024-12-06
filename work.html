@@ -10,11 +10,11 @@ layout: null
 
 <html lang="en">
 <head>
-  {% include header.html %}
+  {% include html_boilerplate/header.html %}
 </head>
 
 <nav>
-  {% include nav.html %}
+  {% include html_boilerplate/nav.html %}
 </nav>
 
 <body>
@@ -22,13 +22,16 @@ layout: null
     <div class="container" >
       <div class="row">
         <div class="col-md-8" >
-          In the works.
+          {% capture content %}
+            {% include content/work/work.md %}
+          {% endcapture %}
+          {{ content | markdownify }}
         </div> 
       </div>
     </div>
 </body>
 <footer class="footer">
-  {% include footer.html %}
+  {% include html_boilerplate/footer.html %}
 </footer>
 
 </html>
