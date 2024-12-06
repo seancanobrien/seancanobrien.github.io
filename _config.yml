@@ -1,6 +1,13 @@
+title: Sean O'Brien
+email: 2812920O@student.gla.ac.uk
+
+favicon: "favicon.png"
+
 liquid:
   enabled: true
 
 markdown: kramdown
+
 kramdown:
     math_engine: katex
+
