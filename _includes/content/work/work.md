@@ -1,10 +1,6 @@
 
-# Projects
+## Maths or other work
+---
 
-## Project 1
+- [My masters thesis](assets/masters_thesis.pdf): *Combinatoric and poset structures for the $$k(\pi, 1)$$ conjecture*.
 
-Some maths was done $$(a+b)^{s_i}$$.
-
-```
-code(yo)
-```

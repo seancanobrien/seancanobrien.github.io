@@ -38,7 +38,3 @@
     - June - July 2019
     - Funded and hosted at the University of Edinburgh
     - Supervised by [Marialuisa Aliotta](https://marialuisaaliotta.com/)
-
-```
-code(yo)
-```
