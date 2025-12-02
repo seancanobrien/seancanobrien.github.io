@@ -31,7 +31,6 @@ body {
     /* max-width: min(100%, 150px); */
 }
 
-
 /* Make entire navbar white with black bottom border */
 .navbar {
     background-color: white !important;
@@ -56,8 +55,6 @@ body {
     background-color: transparent !important;
 }
 
-/* Remove Bootstrap’s inverted navbar colors */
-.navbar-inverse {
-    background-color: white !important;
-    border-color: white !important;
+.navbar-toggle .icon-bar {
+  background-color: #000 !important;
 }
