@@ -1,7 +1,10 @@
-
 html, body {
     height: calc(100%  - 30px); /* Ensure the body takes up the full height of the viewport */
     margin: 0; /* Remove default margin */
+}
+
+body, h1, h2, h3, h4, h5, h6, nav, .navbar, .nav, .nav-item, .nav-link {
+    font-family: serif;
 }
 
 /* I dont know why this 65px business works, this seems to keep the footer at the bottom.*/
@@ -22,4 +25,34 @@ html, body {
 .profile_pic_container {
     display: inline-block;
     /* max-width: min(100%, 150px); */
+}
+
+
+/* Make entire navbar white with black bottom border */
+.navbar {
+    background-color: white !important;
+    border: none !important;
+    border-bottom: 1px solid black !important;
+    box-shadow: none !important;
+    font-family: serif;
+}
+
+/* Make nav links black */
+.navbar .nav > li > a {
+    color: black !important;
+    font-family: serif;
+}
+
+/* Make nav links black on hover */
+.navbar .nav > li > a:hover,
+.navbar .nav > li > a:focus {
+    color: black !important;
+    text-decoration: underline;
+    background-color: transparent !important;
+}
+
+/* Remove Bootstrap’s inverted navbar colors */
+.navbar-inverse {
+    background-color: white !important;
+    border-color: white !important;
 }
