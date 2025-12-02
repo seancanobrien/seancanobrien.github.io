@@ -1,7 +1,4 @@
 
-## CV
----
-
 ### Education
 
 - MSc Mathematics

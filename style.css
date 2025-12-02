@@ -7,6 +7,10 @@ body, h1, h2, h3, h4, h5, h6, nav, .navbar, .nav, .nav-item, .nav-link {
     font-family: serif;
 }
 
+body {
+    font-size: 15px;
+}
+
 /* I dont know why this 65px business works, this seems to keep the footer at the bottom.*/
 .container {
     min-height: calc(100% - 65px);
@@ -40,6 +44,7 @@ body, h1, h2, h3, h4, h5, h6, nav, .navbar, .nav, .nav-item, .nav-link {
 /* Make nav links black */
 .navbar .nav > li > a {
     color: black !important;
+    font-size: 16px;
     font-family: serif;
 }
 
