@@ -12,6 +12,7 @@
 ### Conferences attended
 ---
 
+- [Groups, topology and applications VII](https://sites.google.com/view/gtagranbilbaovii/menu): April 2026, EHU Bilbao.
 - [Topology of Arrangements with an Eye to Applications](https://events.dm.unipi.it/event/292/): September 2025, University of Pisa.
 - [Artin groups, Braids and mapping class groups (ParisFest)](https://imus.us.es/congresos/ParisFest/index.php): June 2025, Cáceres.
 - [YGGT XIII](https://sites.google.com/view/yggt2025): April 2025, University of Copenhagen.
