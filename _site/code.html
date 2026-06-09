@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<!--
+    Plain-Academic by Vasilios Mavroudis
+    Released under the Simplified BSD License/FreeBSD (2-clause) License.
+    https://github.com/mavroudisv/plain-academic
+-->
+
+<html lang="en">
+<head>
+  <title>Sean O'Brien</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<link rel="stylesheet" href="style.css" type="text/css">
+<link rel="stylesheet" href="syntax.css" type="text/css">
+<link rel="shortcut icon" type="image/png" href="img/favicon.png">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<link href='https://fonts.googleapis.com/css?family=Oswald:700' rel='stylesheet' type='text/css'>
+<!-- <script type="text/x-mathjax-config"> -->
+<!--   MathJax.Hub.Config({ -->
+<!--     tex2jax: { -->
+<!--       skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'], -->
+<!--       inlineMath: [['$','$']] -->
+<!--     } -->
+<!--   }); -->
+<!-- </script> -->
+<!-- <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script> -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css" integrity="sha384-yFRtMMDnQtDRO8rLpMIKrtPCD5jdktao2TV19YiZYWMDkUR5GQZR/NOVTdquEx1j" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.js" integrity="sha384-9Nhn55MVVN0/4OFx7EE5kpFBPsEMZxKTCnA+4fqDmg12eCTqGi6+BB2LjY8brQxJ" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+
+</head>
+
+<nav>
+  <!-- Navigation -->
+<nav class="navbar navbar-static-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                                    <span class="sr-only">Toggle navigation</span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                            </button>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="work.html">Maths</a></li>
+        <li><a href="cv.html">CV</a></li> 
+        <li><a href="other.html">Other</a></li> 
+        <!-- <li><a href="misc.html">Miscelaneous</a></li>  -->
+      </ul>
+    </div>
+  </div>
+</nav>
+
+</nav>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        
+        
+<h3 id="an-inkscape-to-tikz-diagram-workflow">An Inkscape to Tikz diagram workflow</h3>
+<p>This will be a quite opinionated but possibly informative explanation of how I make diagrams to use in LaTex, and why I think this is a sensible way to do that.
+If you only use Overleaf, this is probably useless to you.</p>
+
+<p>My setup is:</p>
+<ul>
+  <li>Use Inkscape to make and edit <code class="language-plaintext highlighter-rouge">.svg</code> files.</li>
+  <li>Use <a href="https://github.com/xyz2tex/svg2tikz">svg2tikz</a> to translate the <code class="language-plaintext highlighter-rouge">.svg</code> files to Tikz.</li>
+  <li>A small LaTex macro is used to include these files (one per diagram) in to the main LaTex document.</li>
+  <li>A Python watchdog script looks for changes to <code class="language-plaintext highlighter-rouge">.svg</code> files in the relevant directory and creates/updates the Tikz code files automatically.</li>
+</ul>
+
+<p>With this setup, the workflow is:</p>
+<ol>
+  <li>Run the watchdog script.</li>
+  <li>Create/edit <code class="language-plaintext highlighter-rouge">.svg</code> files using Inkscape.</li>
+</ol>
+
+<p>Then, all edits are then automatically and instantly reflected in LaTex.
+If your LaTex compiler runs each time a file is changes, the document will be re-compiled to reflect the changed diagram.</p>
+
+<p>Here’s why I think this is nice.</p>
+<ul>
+  <li>This is non-prescriptive.
+If you would rather use Tikz, you can.
+Just put that Tikz in an appropriately named file.</li>
+  <li>You can use a combination of visual and textual editing.
+Make a difficult to visualise object in Inkscape, and copy the generated Tikz code in to the relevant Tikz file.</li>
+</ul>
+
+<p>In the maths I do, I need to draw a lot of curved paths (think braid diagrams etc.) and textually editing numbers defining complicated Bézier curves is just not practical.</p>
+
+<hr />
+
+<h3 id="how-to">How to</h3>
+
+<p>These instructions are for Linux.</p>
+
+<p>The first step is to get access to a <code class="language-plaintext highlighter-rouge">svg2tikz</code>.
+To do so, you create a Python environment (somewhere where it can stay, like your home directory) and then install the relevant <a href="https://pypi.org/project/svg2tikz/">pip package</a> in that Python environment.
+You should also install <code class="language-plaintext highlighter-rouge">watchdog</code> in this environment.
+Then, you will find a svg2tikz binary in `path-to-python-env/bin/svg2tikz’.</p>
+
+<p>Then, make a Python file containing the following.
+This is a watchdog script which does a bit of wrangling on the output of <code class="language-plaintext highlighter-rouge">svg2tikz</code> towards this use-case.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="n">watchdog.observers</span> <span class="kn">import</span> <span class="n">Observer</span>
+<span class="kn">from</span> <span class="n">watchdog.events</span> <span class="kn">import</span> <span class="n">FileSystemEventHandler</span>
+<span class="kn">from</span> <span class="n">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+<span class="kn">from</span> <span class="n">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">import</span> <span class="n">subprocess</span>
+<span class="kn">import</span> <span class="n">threading</span>
+<span class="kn">import</span> <span class="n">time</span>
+<span class="kn">import</span> <span class="n">sys</span>
+
+<span class="n">SCRIPT_DIR</span> <span class="o">=</span> <span class="nc">Path</span><span class="p">(</span><span class="n">__file__</span><span class="p">).</span><span class="nf">resolve</span><span class="p">().</span><span class="n">parent</span>
+<span class="n">DEBOUNCE_SECONDS</span> <span class="o">=</span> <span class="mf">2.0</span>
+
+
+<span class="k">class</span> <span class="nc">SVGHandler</span><span class="p">(</span><span class="n">FileSystemEventHandler</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">out_dir</span><span class="p">:</span> <span class="n">Path</span><span class="p">):</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">_out_dir</span> <span class="o">=</span> <span class="n">out_dir</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">_lock</span> <span class="o">=</span> <span class="n">threading</span><span class="p">.</span><span class="nc">Lock</span><span class="p">()</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">_pending</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="n">Path</span><span class="p">,</span> <span class="n">threading</span><span class="p">.</span><span class="n">Timer</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">_in_flight</span><span class="p">:</span> <span class="nb">set</span><span class="p">[</span><span class="n">Path</span><span class="p">]</span> <span class="o">=</span> <span class="nf">set</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">_schedule</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">svg_path</span><span class="p">:</span> <span class="n">Path</span><span class="p">):</span>
+        <span class="k">with</span> <span class="n">self</span><span class="p">.</span><span class="n">_lock</span><span class="p">:</span>
+            <span class="n">existing</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="n">_pending</span><span class="p">.</span><span class="nf">pop</span><span class="p">(</span><span class="n">svg_path</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">existing</span><span class="p">:</span>
+                <span class="n">existing</span><span class="p">.</span><span class="nf">cancel</span><span class="p">()</span>
+            <span class="n">timer</span> <span class="o">=</span> <span class="n">threading</span><span class="p">.</span><span class="nc">Timer</span><span class="p">(</span><span class="n">DEBOUNCE_SECONDS</span><span class="p">,</span> <span class="n">self</span><span class="p">.</span><span class="n">_run_conversion</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">[</span><span class="n">svg_path</span><span class="p">])</span>
+            <span class="n">self</span><span class="p">.</span><span class="n">_pending</span><span class="p">[</span><span class="n">svg_path</span><span class="p">]</span> <span class="o">=</span> <span class="n">timer</span>
+            <span class="n">timer</span><span class="p">.</span><span class="nf">start</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">_run_conversion</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">svg_path</span><span class="p">:</span> <span class="n">Path</span><span class="p">):</span>
+        <span class="k">with</span> <span class="n">self</span><span class="p">.</span><span class="n">_lock</span><span class="p">:</span>
+            <span class="n">self</span><span class="p">.</span><span class="n">_pending</span><span class="p">.</span><span class="nf">pop</span><span class="p">(</span><span class="n">svg_path</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">svg_path</span> <span class="ow">in</span> <span class="n">self</span><span class="p">.</span><span class="n">_in_flight</span><span class="p">:</span>
+                <span class="c1"># Conversion still running — reschedule for after it finishes
+</span>                <span class="n">timer</span> <span class="o">=</span> <span class="n">threading</span><span class="p">.</span><span class="nc">Timer</span><span class="p">(</span><span class="n">DEBOUNCE_SECONDS</span><span class="p">,</span> <span class="n">self</span><span class="p">.</span><span class="n">_run_conversion</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">[</span><span class="n">svg_path</span><span class="p">])</span>
+                <span class="n">self</span><span class="p">.</span><span class="n">_pending</span><span class="p">[</span><span class="n">svg_path</span><span class="p">]</span> <span class="o">=</span> <span class="n">timer</span>
+                <span class="n">timer</span><span class="p">.</span><span class="nf">start</span><span class="p">()</span>
+                <span class="k">return</span>
+            <span class="n">self</span><span class="p">.</span><span class="n">_in_flight</span><span class="p">.</span><span class="nf">add</span><span class="p">(</span><span class="n">svg_path</span><span class="p">)</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="nf">_convert</span><span class="p">(</span><span class="n">svg_path</span><span class="p">,</span> <span class="n">self</span><span class="p">.</span><span class="n">_out_dir</span><span class="p">)</span>
+        <span class="k">finally</span><span class="p">:</span>
+            <span class="k">with</span> <span class="n">self</span><span class="p">.</span><span class="n">_lock</span><span class="p">:</span>
+                <span class="n">self</span><span class="p">.</span><span class="n">_in_flight</span><span class="p">.</span><span class="nf">discard</span><span class="p">(</span><span class="n">svg_path</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">on_modified</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">event</span><span class="p">.</span><span class="n">is_directory</span> <span class="ow">and</span> <span class="n">event</span><span class="p">.</span><span class="n">src_path</span><span class="p">.</span><span class="nf">endswith</span><span class="p">(</span><span class="sh">"</span><span class="s">.svg</span><span class="sh">"</span><span class="p">):</span>
+            <span class="n">self</span><span class="p">.</span><span class="nf">_schedule</span><span class="p">(</span><span class="nc">Path</span><span class="p">(</span><span class="n">event</span><span class="p">.</span><span class="n">src_path</span><span class="p">).</span><span class="nf">resolve</span><span class="p">())</span>
+
+    <span class="k">def</span> <span class="nf">on_created</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">event</span><span class="p">.</span><span class="n">is_directory</span> <span class="ow">and</span> <span class="n">event</span><span class="p">.</span><span class="n">src_path</span><span class="p">.</span><span class="nf">endswith</span><span class="p">(</span><span class="sh">"</span><span class="s">.svg</span><span class="sh">"</span><span class="p">):</span>
+            <span class="n">self</span><span class="p">.</span><span class="nf">_schedule</span><span class="p">(</span><span class="nc">Path</span><span class="p">(</span><span class="n">event</span><span class="p">.</span><span class="n">src_path</span><span class="p">).</span><span class="nf">resolve</span><span class="p">())</span>
+
+
+<span class="k">def</span> <span class="nf">_convert</span><span class="p">(</span><span class="n">svg_path</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span> <span class="n">out_dir</span><span class="p">:</span> <span class="n">Path</span><span class="p">):</span>
+    <span class="n">out_path</span> <span class="o">=</span> <span class="n">out_dir</span> <span class="o">/</span> <span class="p">(</span><span class="n">svg_path</span><span class="p">.</span><span class="n">stem</span> <span class="o">+</span> <span class="sh">"</span><span class="s">.tex</span><span class="sh">"</span><span class="p">)</span>
+    <span class="n">tmp_figonly</span> <span class="o">=</span> <span class="n">out_dir</span> <span class="o">/</span> <span class="p">(</span><span class="n">svg_path</span><span class="p">.</span><span class="n">stem</span> <span class="o">+</span> <span class="sh">"</span><span class="s">_tmp_figonly.tex</span><span class="sh">"</span><span class="p">)</span>
+    <span class="n">tmp_codeonly</span> <span class="o">=</span> <span class="n">out_dir</span> <span class="o">/</span> <span class="p">(</span><span class="n">svg_path</span><span class="p">.</span><span class="n">stem</span> <span class="o">+</span> <span class="sh">"</span><span class="s">_tmp_codeonly.tex</span><span class="sh">"</span><span class="p">)</span>
+
+    <span class="n">timestamp</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">.</span><span class="nf">now</span><span class="p">().</span><span class="nf">strftime</span><span class="p">(</span><span class="sh">"</span><span class="s">%Y-%m-%d %H:%M:%S</span><span class="sh">"</span><span class="p">)</span>
+    <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">[</span><span class="si">{</span><span class="n">timestamp</span><span class="si">}</span><span class="s">] Converting </span><span class="si">{</span><span class="n">svg_path</span><span class="p">.</span><span class="n">name</span><span class="si">}</span><span class="s"> -&gt; </span><span class="si">{</span><span class="n">out_path</span><span class="p">.</span><span class="n">name</span><span class="si">}</span><span class="sh">"</span><span class="p">,</span> <span class="n">flush</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+
+    <span class="n">svg2tikz</span> <span class="o">=</span> <span class="nf">str</span><span class="p">(</span><span class="n">SCRIPT_DIR</span> <span class="o">/</span> <span class="sh">"</span><span class="s">venv/bin/svg2tikz</span><span class="sh">"</span><span class="p">)</span>
+    <span class="n">base_args</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">svg2tikz</span><span class="p">,</span> <span class="nf">str</span><span class="p">(</span><span class="n">svg_path</span><span class="p">),</span>
+        <span class="sh">"</span><span class="s">-t</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">raw</span><span class="sh">"</span><span class="p">,</span>
+        <span class="sh">"</span><span class="s">--markings</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">interpret</span><span class="sh">"</span><span class="p">,</span>
+        <span class="sh">"</span><span class="s">--arrow</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">stealth</span><span class="sh">"</span><span class="p">,</span>
+    <span class="p">]</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">subprocess</span><span class="p">.</span><span class="nf">run</span><span class="p">(</span>
+            <span class="n">base_args</span> <span class="o">+</span> <span class="p">[</span><span class="sh">"</span><span class="s">--output</span><span class="sh">"</span><span class="p">,</span> <span class="nf">str</span><span class="p">(</span><span class="n">tmp_figonly</span><span class="p">),</span> <span class="sh">"</span><span class="s">--codeoutput</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">figonly</span><span class="sh">"</span><span class="p">],</span>
+            <span class="n">check</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">capture_output</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="n">subprocess</span><span class="p">.</span><span class="nf">run</span><span class="p">(</span>
+            <span class="n">base_args</span> <span class="o">+</span> <span class="p">[</span><span class="sh">"</span><span class="s">--output</span><span class="sh">"</span><span class="p">,</span> <span class="nf">str</span><span class="p">(</span><span class="n">tmp_codeonly</span><span class="p">),</span> <span class="sh">"</span><span class="s">--codeoutput</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">codeonly</span><span class="sh">"</span><span class="p">],</span>
+            <span class="n">check</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">capture_output</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+        <span class="p">)</span>
+
+        <span class="k">with</span> <span class="nf">open</span><span class="p">(</span><span class="n">tmp_figonly</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">color_defs</span> <span class="o">=</span> <span class="p">[</span><span class="n">line</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span> <span class="k">if</span> <span class="n">line</span><span class="p">.</span><span class="nf">strip</span><span class="p">().</span><span class="nf">startswith</span><span class="p">(</span><span class="sa">r</span><span class="sh">"</span><span class="s">\definecolor</span><span class="sh">"</span><span class="p">)]</span>
+        <span class="k">with</span> <span class="nf">open</span><span class="p">(</span><span class="n">tmp_codeonly</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">code_lines</span> <span class="o">=</span> <span class="n">f</span><span class="p">.</span><span class="nf">readlines</span><span class="p">()</span>
+
+        <span class="k">with</span> <span class="nf">open</span><span class="p">(</span><span class="n">out_path</span><span class="p">,</span> <span class="sh">"</span><span class="s">w</span><span class="sh">"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">f</span><span class="p">.</span><span class="nf">writelines</span><span class="p">(</span><span class="n">color_defs</span> <span class="o">+</span> <span class="p">[</span><span class="sh">"</span><span class="se">\n</span><span class="sh">"</span><span class="p">]</span> <span class="o">+</span> <span class="n">code_lines</span><span class="p">)</span>
+
+        <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">[</span><span class="si">{</span><span class="n">datetime</span><span class="p">.</span><span class="nf">now</span><span class="p">().</span><span class="n">strftime</span><span class="p">(</span><span class="sh">'</span><span class="s">%H</span><span class="si">:</span><span class="o">%</span><span class="n">M</span><span class="si">:</span><span class="o">%</span><span class="n">S</span><span class="sh">'</span><span class="s">)</span><span class="si">}</span><span class="s">] Done: </span><span class="si">{</span><span class="n">out_path</span><span class="p">.</span><span class="n">name</span><span class="si">}</span><span class="sh">"</span><span class="p">,</span> <span class="n">flush</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+
+    <span class="k">except</span> <span class="n">subprocess</span><span class="p">.</span><span class="n">CalledProcessError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="n">stderr</span> <span class="o">=</span> <span class="n">e</span><span class="p">.</span><span class="n">stderr</span><span class="p">.</span><span class="nf">decode</span><span class="p">(</span><span class="n">errors</span><span class="o">=</span><span class="sh">"</span><span class="s">replace</span><span class="sh">"</span><span class="p">).</span><span class="nf">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">e</span><span class="p">.</span><span class="n">stderr</span> <span class="k">else</span> <span class="sh">""</span>
+        <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">[ERROR] svg2tikz failed for </span><span class="si">{</span><span class="n">svg_path</span><span class="p">.</span><span class="n">name</span><span class="si">}</span><span class="s">: </span><span class="si">{</span><span class="n">stderr</span> <span class="ow">or</span> <span class="n">e</span><span class="si">}</span><span class="sh">"</span><span class="p">,</span> <span class="n">flush</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="k">except</span> <span class="nb">OSError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">[ERROR] File I/O error for </span><span class="si">{</span><span class="n">svg_path</span><span class="p">.</span><span class="n">name</span><span class="si">}</span><span class="s">: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="sh">"</span><span class="p">,</span> <span class="n">flush</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="k">finally</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">tmp</span> <span class="ow">in</span> <span class="p">(</span><span class="n">tmp_figonly</span><span class="p">,</span> <span class="n">tmp_codeonly</span><span class="p">):</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">tmp</span><span class="p">.</span><span class="nf">unlink</span><span class="p">(</span><span class="n">missing_ok</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+            <span class="k">except</span> <span class="nb">OSError</span><span class="p">:</span>
+                <span class="k">pass</span>
+
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="sh">"</span><span class="s">__main__</span><span class="sh">"</span><span class="p">:</span>
+    <span class="n">project_dir</span> <span class="o">=</span> <span class="nc">Path</span><span class="p">(</span><span class="n">sys</span><span class="p">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]).</span><span class="nf">resolve</span><span class="p">()</span> <span class="k">if</span> <span class="nf">len</span><span class="p">(</span><span class="n">sys</span><span class="p">.</span><span class="n">argv</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="k">else</span> <span class="n">Path</span><span class="p">.</span><span class="nf">cwd</span><span class="p">()</span>
+    <span class="n">svg_dir</span> <span class="o">=</span> <span class="n">project_dir</span> <span class="o">/</span> <span class="sh">"</span><span class="s">svg_src</span><span class="sh">"</span>
+    <span class="n">out_dir</span> <span class="o">=</span> <span class="n">project_dir</span> <span class="o">/</span> <span class="sh">"</span><span class="s">figs</span><span class="sh">"</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">svg_dir</span><span class="p">.</span><span class="nf">exists</span><span class="p">():</span>
+        <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">Error: </span><span class="si">{</span><span class="n">svg_dir</span><span class="si">}</span><span class="s"> not found</span><span class="sh">"</span><span class="p">,</span> <span class="nb">file</span><span class="o">=</span><span class="n">sys</span><span class="p">.</span><span class="n">stderr</span><span class="p">)</span>
+        <span class="n">sys</span><span class="p">.</span><span class="nf">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="n">out_dir</span><span class="p">.</span><span class="nf">mkdir</span><span class="p">(</span><span class="n">exist_ok</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="n">handler</span> <span class="o">=</span> <span class="nc">SVGHandler</span><span class="p">(</span><span class="n">out_dir</span><span class="p">)</span>
+    <span class="n">observer</span> <span class="o">=</span> <span class="nc">Observer</span><span class="p">()</span>
+    <span class="n">observer</span><span class="p">.</span><span class="nf">schedule</span><span class="p">(</span><span class="n">handler</span><span class="p">,</span> <span class="nf">str</span><span class="p">(</span><span class="n">svg_dir</span><span class="p">),</span> <span class="n">recursive</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+    <span class="n">observer</span><span class="p">.</span><span class="nf">start</span><span class="p">()</span>
+    <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">Watching </span><span class="si">{</span><span class="n">svg_dir</span><span class="si">}</span><span class="s"> for .svg changes... (Ctrl-C to stop)</span><span class="sh">"</span><span class="p">,</span> <span class="n">flush</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+            <span class="n">time</span><span class="p">.</span><span class="nf">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">except</span> <span class="nb">KeyboardInterrupt</span><span class="p">:</span>
+        <span class="n">observer</span><span class="p">.</span><span class="nf">stop</span><span class="p">()</span>
+    <span class="n">observer</span><span class="p">.</span><span class="nf">join</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p>This expects the Python virtual environment to be alongside wherever this script lives.
+Run this script using the python virtual environment in which <code class="language-plaintext highlighter-rouge">svg2tikz</code> and <code class="language-plaintext highlighter-rouge">watchdog</code> is installed.</p>
+
+<p>I have this setup using an alias.</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">alias </span>svg-watch<span class="o">=</span><span class="s2">"/home/sean/.scripts/svg_conversion/venv/bin/python3.13 /home/sean/.scripts/svg_conversion/svg_watchdog.py"</span>
+</code></pre></div></div>
+<p>So, I run <code class="language-plaintext highlighter-rouge">svg-watch</code> in my LaTex project directory,
+I put <code class="language-plaintext highlighter-rouge">.svg</code> files in <code class="language-plaintext highlighter-rouge">svg_src/</code> in that project directory, and converted Tikz files are put in <code class="language-plaintext highlighter-rouge">figs/</code> in the project directory.</p>
+
+<p>Then, to include the diagram in your LaTex, use the following macro.</p>
+
+<div class="language-latex highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\newcommand</span><span class="p">{</span><span class="k">\includetikz</span><span class="p">}</span>[2][]<span class="p">{</span>
+	<span class="nt">\begin{tikzpicture}</span>[#1,every node/.append style=<span class="p">{</span>scale=1<span class="p">}</span>, inner sep=0pt, outer sep=0pt]
+		<span class="k">\input</span><span class="p">{</span>#2<span class="p">}</span>
+	<span class="nt">\end{tikzpicture}</span><span class="c">%</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>And add use that in your LaTex document like so.</p>
+
+<div class="language-latex highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">\begin{figure}</span>
+    <span class="k">\includetikz</span><span class="na">[]</span><span class="p">{</span>figs/my<span class="p">_</span>diagram.tex<span class="p">}</span>
+<span class="nt">\end{figure}</span>
+</code></pre></div></div>
+
+<p>You can add optional arguments like base-point etc.</p>
+
+<div class="language-latex highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">\begin{figure}</span>
+    <span class="k">\includetikz</span><span class="na">[baseline=(baseline_text.center)]</span><span class="p">{</span>figs/all<span class="p">_</span>arcs.tex<span class="p">}</span>
+<span class="nt">\end{figure}</span>
+</code></pre></div></div>
+
+
+      </div>
+    </div>
+  </div>
+</body>
+<footer class="footer">
+  <!-- Other people may like it too! -->
+<a style="color:#d0d2d9;font-size:0.8em; float:right;" href="https://github.com/mavroudisv/plain-academic">Template courtesy of mavroudisv</a>
+
+</footer>
+
+</html>

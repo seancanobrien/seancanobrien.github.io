@@ -5,5 +5,3 @@ I am a part of the [Algebra Geometry and Quantum](https://www.agq-cdt.org/) cent
 My research interests include group theory, geometric group theory and algebraic topology, with focus on Artin and Coxeter groups.
 
 I am currently working on the isomorphism problem between Artin and Dual Artin Groups.
-
-

@@ -2,7 +2,7 @@
 ### Writing
 ---
 
-- [My masters thesis](assets/masters_thesis.pdf): *Combinatoric and poset structures for the $$k(\pi, 1)$$ conjecture*.
+- [My masters thesis](assets/masters_thesis.pdf): *Combinatoric and poset structures for the $$K(\pi, 1)$$ conjecture*.
 
 ### Talks as speaker
 ---
