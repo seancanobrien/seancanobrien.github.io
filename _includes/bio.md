@@ -3,5 +3,4 @@ I am a second year mathematics PhD supervised by [Rachael Boyd](https://www.math
 I am a part of the [Algebra Geometry and Quantum](https://www.agq-cdt.org/) centre for doctoral training at Glasgow, which is funded by the EPSRC.
 
 My research interests include group theory, geometric group theory and algebraic topology, with focus on Artin and Coxeter groups.
-
-I am currently working on the isomorphism problem between Artin and Dual Artin Groups.
+I am currently working on the isomorphism problem between Artin and dual Artin groups.

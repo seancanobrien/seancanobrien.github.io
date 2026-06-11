@@ -94,3 +94,17 @@ body {
     object-fit: cover;
     display: block;
 }
+
+/* Framed sample of the generated arXiv summary email */
+.email-preview {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background: #f7f7f7;
+    padding: 0.5em 1.5em;
+    margin: 1.5em 0;
+    font-size: 0.9em;
+}
+
+.email-preview h1 { font-size: 1.5em; }
+.email-preview h3 { font-size: 1.1em; }
+.email-preview h4 { color: #666; font-weight: normal; margin-top: 0; }

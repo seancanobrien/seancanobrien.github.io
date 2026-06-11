@@ -14,6 +14,10 @@ title: CV
 
 ### Employment
 
+- Maths circle tutor/lead tutor.
+    - [We solve problems](https://wesolveproblems.org.uk/)
+    - September 2025 - Present
+
 - [STACK](https://docs.stack-assessment.org) question developer
     - University of Glasgow
     - October 2023 - September 2024

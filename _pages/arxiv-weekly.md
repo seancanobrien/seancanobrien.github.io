@@ -10,7 +10,9 @@ There is a nice [API](https://info.arxiv.org/help/api/index.html) for searching 
 
 The code for this is on [github](https://github.com/seancanobrien/arxiv_weekly_summary).
 
-I make a filter file like the following
+### What this does
+The main input is a filter file, which specifies repositories, authors and search strings.
+It strictly matches repositories, and is more lenient with other search criteria.
 ```
 example_filter.txt
 --------------------
@@ -35,8 +37,7 @@ coxter
 braid
 maths is cool
 ```
-A cron job runs the main script each Monday.
-This does the following:
+The main script (ideally scheduled by Cron) does the following:
 
 - The python script pulls relevant articles using the API and makes a summary which is a `.html` file.
 - [Mutt](http://www.mutt.org/) sends this `.html` file to my email.
@@ -45,8 +46,7 @@ Zoho provides an SMTP server, which plays nicely with Mutt.
 
 These emails look like this:
 
----
-
+<div class="email-preview" markdown="0">
 
 <h1>Arχiv Weekly Update</h1>
 <h4>Mon 2026-04-20 to Sun 2026-04-26</h4>
@@ -68,4 +68,8 @@ These emails look like this:
 <p>Thank you to arXiv for use of its open access interoperability.</p>
 <p>Link to its <a href="https://info.arxiv.org/help/api/index.html">API</a>, which this makes use of.</p>
 
+</div>
+
 ---
+
+**Get in touch if you have any questions.**

@@ -2,6 +2,7 @@
 title: Other
 ---
 
-- [An Inkscape to Tikz diagram workflow](diagrams.html)
-- [Weekly summaries of Arχiv submissions](arxiv-weekly.html)
+- [About me](about.html)
+- [An Inkscape to TikZ diagram workflow](diagrams.html)
+- [Weekly summary emails of Arχiv submissions](arxiv-weekly.html)
 - [Photos](photos.html)

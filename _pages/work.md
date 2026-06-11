@@ -20,3 +20,9 @@ title: Maths
 - [Artin groups, Braids and mapping class groups (ParisFest)](https://imus.us.es/congresos/ParisFest/index.php): June 2025, Cáceres.
 - [YGGT XIII](https://sites.google.com/view/yggt2025): April 2025, University of Copenhagen.
 - [Hot Topics: Artin Groups and Arrangements - Topology, Geometry, and Combinatorics](https://www.slmath.org/workshops/1047#overview_workshop): March 2024, University of California, Berkeley.
+
+
+### Outreach
+---
+
+- I am a tutor and lead tutor for [We Solve Problems](https://wesolveproblems.org.uk/), who organise weekly maths lessons for talented students aged 11 to 16.

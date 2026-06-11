@@ -204,3 +204,6 @@ You can add optional arguments like base-point etc.
     \includetikz[baseline=(baseline_text.center)]{figs/all_arcs.tex}
 \end{figure}
 ```
+---
+
+**Get in touch if you have any questions.**

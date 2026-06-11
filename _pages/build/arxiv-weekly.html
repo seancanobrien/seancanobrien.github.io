@@ -39,7 +39,10 @@ summaries of submissions based on keyword filters, which I send to
 myself each Monday.</p>
 <p>The code for this is on <a
 href="https://github.com/seancanobrien/arxiv_weekly_summary">github</a>.</p>
-<p>I make a filter file like the following</p>
+<h3 id="what-this-does">What this does</h3>
+<p>The main input is a filter file, which specifies repositories,
+authors and search strings. It strictly matches repositories, and is
+more lenient with other search criteria.</p>
 <pre><code>example_filter.txt
 --------------------
 Anything before the first header (RePOSITORIES: etc) is ignored.
@@ -62,8 +65,7 @@ artin
 coxter
 braid
 maths is cool</code></pre>
-<p>A cron job runs the main script each Monday. This does the
-following:</p>
+<p>The main script (ideally scheduled by Cron) does the following:</p>
 <ul>
 <li>The python script pulls relevant articles using the API and makes a
 summary which is a <code>.html</code> file.</li>
@@ -73,7 +75,7 @@ href="https://www.zoho.com/mail/">Zoho mail</a> to send these emails.
 Zoho provides an SMTP server, which plays nicely with Mutt.</li>
 </ul>
 <p>These emails look like this:</p>
-<hr />
+<div class="email-preview" data-markdown="0">
 <h1>
 Arχiv Weekly Update
 </h1>
@@ -135,6 +137,8 @@ Link to its
 <a href="https://info.arxiv.org/help/api/index.html">API</a>, which this
 makes use of.
 </p>
+</div>
 <hr />
+<p><strong>Get in touch if you have any questions.</strong></p>
 </body>
 </html>
