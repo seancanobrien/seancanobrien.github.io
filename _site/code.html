@@ -68,8 +68,8 @@
         
         
 <h3 id="an-inkscape-to-tikz-diagram-workflow">An Inkscape to Tikz diagram workflow</h3>
-<p>This will be a quite opinionated but possibly informative explanation of how I make diagrams to use in LaTex, and why I think this is a sensible way to do that.
-If you only use Overleaf, this is probably useless to you.</p>
+<p>This is how I make diagrams for maths documents.
+This is only relevant to you if you can edit/compile LaTex on your own computer, i.e. not using OverLeaf.</p>
 
 <p>My setup is:</p>
 <ul>
@@ -108,7 +108,7 @@ Make a difficult to visualise object in Inkscape, and copy the generated Tikz co
 <p>The first step is to get access to a <code class="language-plaintext highlighter-rouge">svg2tikz</code>.
 To do so, you create a Python environment (somewhere where it can stay, like your home directory) and then install the relevant <a href="https://pypi.org/project/svg2tikz/">pip package</a> in that Python environment.
 You should also install <code class="language-plaintext highlighter-rouge">watchdog</code> in this environment.
-Then, you will find a svg2tikz binary in `path-to-python-env/bin/svg2tikz’.</p>
+Then, you will find a svg2tikz binary in <code class="language-plaintext highlighter-rouge">path-to-python-env/bin/svg2tikz</code>.</p>
 
 <p>Then, make a Python file containing the following.
 This is a watchdog script which does a bit of wrangling on the output of <code class="language-plaintext highlighter-rouge">svg2tikz</code> towards this use-case.</p>

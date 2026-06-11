@@ -1,7 +1,7 @@
 
 ### An Inkscape to Tikz diagram workflow
-This will be a quite opinionated but possibly informative explanation of how I make diagrams to use in LaTex, and why I think this is a sensible way to do that.
-If you only use Overleaf, this is probably useless to you.
+This is how I make diagrams for maths documents.
+This is only relevant to you if you can edit/compile LaTex on your own computer, i.e. not using OverLeaf.
 
 My setup is:
 - Use Inkscape to make and edit `.svg` files.
@@ -34,7 +34,7 @@ These instructions are for Linux.
 The first step is to get access to a `svg2tikz`.
 To do so, you create a Python environment (somewhere where it can stay, like your home directory) and then install the relevant [pip package](https://pypi.org/project/svg2tikz/) in that Python environment.
 You should also install `watchdog` in this environment.
-Then, you will find a svg2tikz binary in `path-to-python-env/bin/svg2tikz'.
+Then, you will find a svg2tikz binary in `path-to-python-env/bin/svg2tikz`.
 
 Then, make a Python file containing the following.
 This is a watchdog script which does a bit of wrangling on the output of `svg2tikz` towards this use-case.

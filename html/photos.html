@@ -39,7 +39,7 @@ permalink: /photos.html
         <h2>Photos</h2>
         <div class="photo-grid">
           {% for file in site.static_files %}
-            {% if file.path contains '/img/' and file.extname == '.jpg' or file.path contains '/img/' and file.extname == '.png' or file.path contains '/img/' and file.extname == '.jpeg' or file.path contains '/img/' and file.extname == '.gif' or file.path contains '/img/' and file.extname == '.webp' %}
+            {% if file.path contains '/img/photos_page/' and file.extname == '.jpg' or file.path contains '/img/' and file.extname == '.png' or file.path contains '/img/' and file.extname == '.jpeg' or file.path contains '/img/' and file.extname == '.gif' or file.path contains '/img/' and file.extname == '.webp' %}
               <img src="{{ file.path }}" alt="{{ file.basename }}">
             {% endif %}
           {% endfor %}
