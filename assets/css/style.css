@@ -31,7 +31,7 @@ body, h1, h2, h3, h4, h5, h6, nav, .navbar, .nav, .nav-item, .nav-link {
 }
 
 body {
-    font-size: 15px;
+    font-size: 17px;
 }
 
 /* I dont know why this 65px business works, this seems to keep the footer at the bottom.*/
