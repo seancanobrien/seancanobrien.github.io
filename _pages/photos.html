@@ -1,0 +1,19 @@
+---
+layout: base
+title: Photos
+permalink: /photos.html
+---
+<div class="container">
+  <div class="row">
+    <div class="col-md-10">
+      <h2>Photos</h2>
+      <div class="photo-grid">
+        {% for file in site.static_files %}
+          {% if file.path contains '/img/photos_page/' and file.extname == '.jpg' or file.path contains '/img/' and file.extname == '.png' or file.path contains '/img/' and file.extname == '.jpeg' or file.path contains '/img/' and file.extname == '.gif' or file.path contains '/img/' and file.extname == '.webp' %}
+            <img src="{{ file.path }}" alt="{{ file.basename }}">
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,96 @@
+/* Computer Modern Sans Serif (self-hosted, OFL). Files in assets/fonts/. */
+@font-face {
+    font-family: 'CMU Sans Serif';
+    src: url('../fonts/cmunss.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'CMU Sans Serif';
+    src: url('../fonts/cmunsx.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'CMU Sans Serif';
+    src: url('../fonts/cmunsi.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+html, body {
+    height: calc(100%  - 30px); /* Ensure the body takes up the full height of the viewport */
+    margin: 0; /* Remove default margin */
+}
+
+body, h1, h2, h3, h4, h5, h6, nav, .navbar, .nav, .nav-item, .nav-link {
+    font-family: 'CMU Sans Serif', "Century Gothic", "Trebuchet MS", Helvetica, Arial, sans-serif;
+}
+
+body {
+    font-size: 15px;
+}
+
+/* I dont know why this 65px business works, this seems to keep the footer at the bottom.*/
+.container {
+    min-height: calc(100% - 65px);
+}
+
+.footer {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    height: 30px; /* Adjust the height to match the footer's height */
+    text-align: center;
+    line-height: 50px; /* Vertically center the text */
+    padding-right: 20px;
+}
+
+.profile_pic_container {
+    display: inline-block;
+    /* max-width: min(100%, 150px); */
+}
+
+/* Make entire navbar white with black bottom border */
+.navbar {
+    background-color: white !important;
+    border: none !important;
+    border-bottom: 1px solid black !important;
+    box-shadow: none !important;
+}
+
+/* Make nav links black */
+.navbar .nav > li > a {
+    color: black !important;
+    font-size: 16px;
+}
+
+/* Make nav links black on hover */
+.navbar .nav > li > a:hover,
+.navbar .nav > li > a:focus {
+    color: black !important;
+    text-decoration: underline;
+    background-color: transparent !important;
+}
+
+.navbar-toggle .icon-bar {
+  background-color: #000 !important;
+}
+
+/* Photos page grid */
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 12px;
+    padding: 20px 0;
+}
+
+.photo-grid img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+}

@@ -1,0 +1,12 @@
+# Jekyll build output and caches
+_site/
+.jekyll-cache/
+.jekyll-metadata
+.sass-cache/
+
+# Ruby/bundler
+vendor/
+.bundle/
+
+# Editor / tooling artifacts
+.dictionaries/

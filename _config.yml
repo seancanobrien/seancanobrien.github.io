@@ -12,3 +12,26 @@ kramdown:
     math_engine: katex
     syntax_highlighter: rouge
 
+# All routable pages live in _pages/ (organize into subfolders freely).
+collections:
+  pages:
+    output: true
+
+# Every page gets the default layout (chrome + container) and a flat,
+# root-level URL based on its filename — independent of which subfolder it
+# sits in. Individual pages can override either (e.g. index sets permalink: /).
+defaults:
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: default
+      permalink: /:name:output_ext
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - LICENSE.txt
+  - vendor
+
