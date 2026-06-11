@@ -2,15 +2,15 @@
 title: Diagrams
 ---
 
-# An Inkscape to Tikz diagram workflow
+# An Inkscape to TikZ diagram workflow
 This is how I make diagrams for maths documents.
 This is only relevant to you if you can edit/compile LaTex on your own computer, i.e. not using OverLeaf.
 
 My setup is:
 - Use Inkscape to make and edit `.svg` files.
-- Use [svg2tikz](https://github.com/xyz2tex/svg2tikz) to translate the `.svg` files to Tikz.
+- Use [svg2tikz](https://github.com/xyz2tex/svg2tikz) to translate the `.svg` files to TikZ.
 - A small LaTex macro is used to include these files (one per diagram) in to the main LaTex document.
-- A Python watchdog script looks for changes to `.svg` files in the relevant directory and creates/updates the Tikz code files automatically.
+- A Python watchdog script looks for changes to `.svg` files in the relevant directory and creates/updates the TikZ code files automatically.
 
 With this setup, the workflow is:
 1. Run the watchdog script.
@@ -21,10 +21,10 @@ If your LaTex compiler runs each time a file is changes, the document will be re
 
 Here's why I think this is nice.
 - This is non-prescriptive.
-If you would rather use Tikz, you can.
-Just put that Tikz in an appropriately named file.
+If you would rather use TikZ, you can.
+Just put that TikZ in an appropriately named file.
 - You can use a combination of visual and textual editing.
-Make a difficult to visualise object in Inkscape, and copy the generated Tikz code in to the relevant Tikz file.
+Make a difficult to visualise object in Inkscape, and copy the generated TikZ code in to the relevant TikZ file.
 
 In the maths I do, I need to draw a lot of curved paths (think braid diagrams etc.) and textually editing numbers defining complicated Bézier curves is just not practical.
 
@@ -177,7 +177,7 @@ I have this setup using an alias.
 alias svg-watch="/home/sean/.scripts/svg_conversion/venv/bin/python3.13 /home/sean/.scripts/svg_conversion/svg_watchdog.py"
 ```
 So, I run `svg-watch` in my LaTex project directory,
-I put `.svg` files in `svg_src/` in that project directory, and converted Tikz files are put in `figs/` in the project directory.
+I put `.svg` files in `svg_src/` in that project directory, and converted TikZ files are put in `figs/` in the project directory.
 
 Then, to include the diagram in your LaTex, use the following macro.
 

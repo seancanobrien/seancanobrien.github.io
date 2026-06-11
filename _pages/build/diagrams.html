@@ -92,28 +92,28 @@
 <header id="title-block-header">
 <h1 class="title">Diagrams</h1>
 </header>
-<h1 id="an-inkscape-to-tikz-diagram-workflow">An Inkscape to Tikz
+<h1 id="an-inkscape-to-tikz-diagram-workflow">An Inkscape to TikZ
 diagram workflow</h1>
 <p>This is how I make diagrams for maths documents. This is only
 relevant to you if you can edit/compile LaTex on your own computer,
 i.e. not using OverLeaf.</p>
 <p>My setup is: - Use Inkscape to make and edit <code>.svg</code> files.
 - Use <a href="https://github.com/xyz2tex/svg2tikz">svg2tikz</a> to
-translate the <code>.svg</code> files to Tikz. - A small LaTex macro is
+translate the <code>.svg</code> files to TikZ. - A small LaTex macro is
 used to include these files (one per diagram) in to the main LaTex
 document. - A Python watchdog script looks for changes to
 <code>.svg</code> files in the relevant directory and creates/updates
-the Tikz code files automatically.</p>
+the TikZ code files automatically.</p>
 <p>With this setup, the workflow is: 1. Run the watchdog script. 1.
 Create/edit <code>.svg</code> files using Inkscape.</p>
 <p>Then, all edits are then automatically and instantly reflected in
 LaTex. If your LaTex compiler runs each time a file is changes, the
 document will be re-compiled to reflect the changed diagram.</p>
 <p>Here’s why I think this is nice. - This is non-prescriptive. If you
-would rather use Tikz, you can. Just put that Tikz in an appropriately
+would rather use TikZ, you can. Just put that TikZ in an appropriately
 named file. - You can use a combination of visual and textual editing.
 Make a difficult to visualise object in Inkscape, and copy the generated
-Tikz code in to the relevant Tikz file.</p>
+TikZ code in to the relevant TikZ file.</p>
 <p>In the maths I do, I need to draw a lot of curved paths (think braid
 diagrams etc.) and textually editing numbers defining complicated Bézier
 curves is just not practical.</p>
@@ -265,7 +265,7 @@ installed.</p>
 class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">alias</span> svg-watch=<span class="st">&quot;/home/sean/.scripts/svg_conversion/venv/bin/python3.13 /home/sean/.scripts/svg_conversion/svg_watchdog.py&quot;</span></span></code></pre></div>
 <p>So, I run <code>svg-watch</code> in my LaTex project directory, I put
 <code>.svg</code> files in <code>svg_src/</code> in that project
-directory, and converted Tikz files are put in <code>figs/</code> in the
+directory, and converted TikZ files are put in <code>figs/</code> in the
 project directory.</p>
 <p>Then, to include the diagram in your LaTex, use the following
 macro.</p>
