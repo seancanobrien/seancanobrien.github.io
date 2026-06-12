@@ -2,10 +2,10 @@
 title: Maths
 ---
 
-### Writing
+### Preprints
 ---
 
-- [My masters thesis](assets/masters_thesis.pdf): *Combinatoric and poset structures for the $$K(\pi, 1)$$ conjecture*.
+- *The dual Artin isomorphism for Artin groups of XXL type*: [ArXiv](https://arxiv.org/abs/2606.13296).
 
 ### Talks as speaker
 ---

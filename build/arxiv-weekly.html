@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>ArXiv weekly</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">ArXiv weekly</h1>
+</header>
+<h1 id="weekly-email-summaries-of-arxiv-submissions">Weekly email
+summaries of ArXiv submissions</h1>
+<p>I like the <a href="https://info.arxiv.org/help/subscribe.html">daily
+emails</a> that the ArXiv has for new submissions. However, submissions
+are abundant and most are not immediately relevant. There is a nice <a
+href="https://info.arxiv.org/help/api/index.html">API</a> for searching
+articles and downloading metadata, and I use this API to generate weekly
+summaries of submissions based on keyword filters, which I send to
+myself each Monday.</p>
+<p>The code for this is on <a
+href="https://github.com/seancanobrien/arxiv_weekly_summary">github</a>.</p>
+<h3 id="what-this-does">What this does</h3>
+<p>The main input is a filter file, which specifies repositories,
+authors and search strings. It strictly matches repositories, and is
+more lenient with other search criteria.</p>
+<pre><code>example_filter.txt
+--------------------
+Anything before the first header (RePOSITORIES: etc) is ignored.
+We can put an email here, for use in another script.
+
+# Comment lines are ignored
+REPOSITORIES:
+math.gr
+math.at
+
+AUTHORS:
+Terrence Tao
+Leonhard Euler
+# Hyphens and potentially other symbols should be substituted for underscores.
+Jean_Pierre Serre
+
+# These headers are case sensitive and must contain the colon
+KEYWORDS:
+artin
+coxter
+braid
+maths is cool</code></pre>
+<p>The main script (ideally scheduled by Cron) does the following:</p>
+<ul>
+<li>The python script pulls relevant articles using the API and makes a
+summary which is a <code>.html</code> file.</li>
+<li><a href="http://www.mutt.org/">Mutt</a> sends this
+<code>.html</code> file to my email. I use a <a
+href="https://www.zoho.com/mail/">Zoho mail</a> to send these emails.
+Zoho provides an SMTP server, which plays nicely with Mutt.</li>
+</ul>
+<p>These emails look like this:</p>
+<div class="email-preview" data-markdown="0">
+<h1>
+Arχiv Weekly Update
+</h1>
+<h4>
+Mon 2026-04-20 to Sun 2026-04-26
+</h4>
+<h3>
+Search Criteria
+</h3>
+<ul>
+<li>
+<strong>Subject categories</strong>:
+<a href="https://arxiv.org/list/math.GR/recent">math.GR</a>,
+<a href="https://arxiv.org/list/math.AT/recent">math.AT</a>,
+<a href="https://arxiv.org/list/math.GT/recent">math.GT</a>
+</li>
+<li>
+<strong>Match authors</strong>: Terrence Tao, Leonhard Euler,
+Jean_Pierre Serre
+</li>
+<li>
+<strong>Match title or abstract</strong>: artin, hyperplane arrangement,
+raag, coxter, braid, hurwitz
+</li>
+</ul>
+<hr />
+<h3>
+<a href="http://arxiv.org/abs/2306.10519v3">Handle decompositions and
+Kirby diagrams for the complement of plane algebraic curves</a>
+</h3>
+<p>
+<strong>Authors:</strong> Sakumi Sugawara
+</p>
+<p>
+<strong>Article updated (V3)</strong>: 2026-04-23 02:45:01.
+<strong>Originally published</strong>: 2023-06-18 10:48:43
+</p>
+<p>
+<strong>Categories:</strong> <u>math.GT</u>, math.AG
+</p>
+<p>
+<strong>Abstract:</strong>
+</p>
+<p>
+The complement of plane algebraic curves are well studied from
+topological and algebro-geometric viewpoints. In this paper, we will
+describe the explicit handle decompositions and the Kirby diagrams for
+the complement of plane algebraic curves. The method is based on the
+notion of braid monodromy. We refined this technique to obtain handle
+decompositions and Kirby diagrams.
+</p>
+<hr />
+…
+<p>
+Thank you to arXiv for use of its open access interoperability.
+</p>
+<p>
+Link to its
+<a href="https://info.arxiv.org/help/api/index.html">API</a>, which this
+makes use of.
+</p>
+</div>
+<hr />
+<p><strong>Get in touch if you have any questions.</strong></p>
+</body>
+</html>

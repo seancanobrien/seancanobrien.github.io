@@ -1,10 +1,10 @@
 ---
-title: Arχiv weekly
+title: ArXiv weekly
 ---
 
-# Weekly emailed summaries of Arχiv submissions
+# Weekly email summaries of ArXiv submissions
 
-I like the [daily emails](https://info.arxiv.org/help/subscribe.html) that the Arχiv has for new submissions.
+I like the [daily emails](https://info.arxiv.org/help/subscribe.html) that the ArXiv has for new submissions.
 However, submissions are abundant and most are not immediately relevant.
 There is a nice [API](https://info.arxiv.org/help/api/index.html) for searching articles and downloading metadata, and I use this API to generate weekly summaries of submissions based on keyword filters, which I send to myself each Monday.
 
