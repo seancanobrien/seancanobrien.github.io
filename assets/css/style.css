@@ -54,6 +54,10 @@ body {
     /* max-width: min(100%, 150px); */
 }
 
+.profile_pic_container img {
+    border: 1px solid black;
+}
+
 /* Make entire navbar white with black bottom border */
 .navbar {
     background-color: white !important;
