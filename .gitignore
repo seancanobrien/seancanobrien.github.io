@@ -10,3 +10,5 @@ vendor/
 
 # Editor / tooling artifacts
 .dictionaries/
+
+build/
