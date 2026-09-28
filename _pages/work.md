@@ -10,7 +10,8 @@ title: Maths
 ### Talks as speaker
 ---
 
-- *The dual Artin group isomorphism problem*, [Dynamics and Group Geometry Early Researchers Seminar (DAGGER)](https://warwick.ac.uk/fac/sci/maths/research/events/seminars/areas/dagger/2025-2026/): 27th Nov 2025, Universiy of Warwick.
+- [Geometry and Topology Seminar](https://www.gla.ac.uk/schools/mathematicsstatistics/events/details/?id=11699): 28th Sep 2026, University of Glasgow.
+- [Dynamics and Group Geometry Early Researchers Seminar (DAGGER)](https://warwick.ac.uk/fac/sci/maths/research/events/seminars/areas/dagger/2025-2026/): 27th Nov 2025, Universiy of Warwick.
 
 ### Conferences attended
 ---
