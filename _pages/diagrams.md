@@ -37,7 +37,7 @@ These instructions are for Linux.
 The first step is to get access to a `svg2tikz`.
 To do so, you create a Python environment (somewhere where it can stay, like your home directory) and then install the relevant [pip package](https://pypi.org/project/svg2tikz/) in that Python environment.
 You should also install `watchdog` in this environment.
-Then, you will find a svg2tikz binary in `path-to-python-env/bin/svg2tikz`.
+There, you will find a `svg2tikz` binary in `path-to-python-env/bin/svg2tikz`.
 
 Then, make a Python file containing the following.
 This is a watchdog script which does a bit of wrangling on the output of `svg2tikz` towards this use-case.
@@ -197,11 +197,11 @@ And add use that in your LaTex document like so.
 \end{figure}
 ```
 
-You can add optional arguments like base-point etc.
+You can add optional arguments like baseline etc.
 
 ```latex
 \begin{figure}
-    \includetikz[baseline=(baseline_text.center)]{figs/all_arcs.tex}
+    \includetikz[baseline=(my_baseline_node.center)]{figs/my_diagram.tex}
 \end{figure}
 ```
 ---
