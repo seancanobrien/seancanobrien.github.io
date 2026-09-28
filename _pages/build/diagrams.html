@@ -125,7 +125,7 @@ you create a Python environment (somewhere where it can stay, like your
 home directory) and then install the relevant <a
 href="https://pypi.org/project/svg2tikz/">pip package</a> in that Python
 environment. You should also install <code>watchdog</code> in this
-environment. Then, you will find a svg2tikz binary in
+environment. There, you will find a <code>svg2tikz</code> binary in
 <code>path-to-python-env/bin/svg2tikz</code>.</p>
 <p>Then, make a Python file containing the following. This is a watchdog
 script which does a bit of wrangling on the output of
@@ -280,10 +280,10 @@ class="sourceCode latex"><code class="sourceCode latex"><span id="cb3-1"><a href
 class="sourceCode latex"><code class="sourceCode latex"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">figure</span>}</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\includetikz</span>[]{figs/my_diagram.tex}</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">figure</span>}</span></code></pre></div>
-<p>You can add optional arguments like base-point etc.</p>
+<p>You can add optional arguments like baseline etc.</p>
 <div class="sourceCode" id="cb5"><pre
 class="sourceCode latex"><code class="sourceCode latex"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">figure</span>}</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\includetikz</span>[baseline=(baseline_text.center)]{figs/all_arcs.tex}</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\includetikz</span>[baseline=(my_baseline_node.center)]{figs/my_diagram.tex}</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">figure</span>}</span></code></pre></div>
 <hr />
 <p><strong>Get in touch if you have any questions.</strong></p>
