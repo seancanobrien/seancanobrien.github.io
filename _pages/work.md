@@ -10,6 +10,7 @@ title: Maths
 ### Talks as speaker
 ---
 
+- [World of GroupCraft VI](https://sites.google.com/view/world-of-groupcraft-6): 23rd October 2026, [slides](assets/slides/groupcraft_6_slides.pdf).
 - [Seminario di Algebra e Geometria](https://site.unibo.it/seminar-algebra-geometry/it/elenco-seminari/sean-o-brien): 6th October 2026, University of Bologna.
 - [Groups, Geometry and Topology Seminar](https://www.macs.hw.ac.uk/school_seminars/seminar_ggt.php): 30th September 2026, Heriot-Watt University, Edinburgh.
 - [Geometry and Topology Seminar](https://www.gla.ac.uk/schools/mathematicsstatistics/events/details/?id=11699): 28th September 2026, University of Glasgow.
